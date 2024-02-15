@@ -1,3 +1,6 @@
 .direnv
+<<<<<<< HEAD
 result
 vendor
+=======
+>>>>>>> e97620f (adding flake)
