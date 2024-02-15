@@ -1,8 +1,0 @@
-
-.vscode
-coverage.out
-.DS_Store
-**/openapi.json
-.env.local
-recipe.db
-bin
