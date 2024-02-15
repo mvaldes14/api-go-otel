@@ -14,18 +14,11 @@
   in
   {
     devShells.${system}.default = pkgs.mkShell {
-      buildInputs = with pkgs; [ go_1_22 ];
+      inputsFrom = [ self.packages.${system}.default ];
     };
-    packages.${system}.default = pkgs.buildGoModule {
+    packages.${system}.default = pkgs.buildGo122Module {
       inherit name vendorHash;
       src = ./.;
-    };
-    app.${system}.default = {
-      type = "app";
-      description = "Go Api templ";
-      start = ''
-        ${pkgs.go}/bin/api-go-templ
-      '';
     };
   };
 }
