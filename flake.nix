@@ -15,10 +15,12 @@
   {
     devShells.${system}.default = pkgs.mkShell {
       inputsFrom = [ self.packages.${system}.default ];
+      nativeBuildInputs = [ pkgs.air ];
     };
     packages.${system}.default = pkgs.buildGo122Module {
       inherit name vendorHash;
       src = ./.;
+      subPackages = [ "pkgs/server" ];
     };
   };
 }
