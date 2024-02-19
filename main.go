@@ -1,25 +1,19 @@
 package main
 
 import (
-	"github.com/go-fuego/fuego"
-  "fmt"
+	"net/http"
 )
 
-func newServer() *fuego.Server {
-	s := fuego.NewServer()
-	return s
+func indexHandler(w http.ResponseWriter, r *http.Request) {
+  w.Write([]byte("Hello World"))
 }
 
-
 func main() {
-	server := newServer()
+  mux := http.NewServeMux()
 
-	fuego.Get(server, "/", func(c fuego.ContextNoBody) (fuego.HTML, error) {
-		return c.Render("templates/index.html", "Hello, World!")
-  })
-	fuego.Get(server, "/api", func(c fuego.ContextNoBody) (string, error) {
-    return fmt.Sprintf("{msg:hello}"), nil
-  })
-	
-  server.Run()
+  mux.HandleFunc("/",indexHandler)
+
+
+  http.ListenAndServe(":8080", mux)
+
 }

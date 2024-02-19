@@ -10,7 +10,7 @@
     system = "x86_64-linux";
     pkgs = import nixpkgs { inherit system; };
     name = "api-go-templ";
-    vendorHash = "sha256-5tKAmV0jGwtlRLRbxz7WKkefrhQe5+ZT+P52EsEV6ig=";
+    vendorHash = null;
   in
   {
     devShells.${system}.default = pkgs.mkShell {
@@ -20,7 +20,10 @@
     packages.${system}.default = pkgs.buildGo122Module {
       inherit name vendorHash;
       src = ./.;
-      subPackages = [ "pkgs/server" ];
+    };
+    apps.${system}.default = {
+      type = "app";
+      program = "${self.devShells.${system}.default.nativeBuildInputs}";
     };
   };
 }
