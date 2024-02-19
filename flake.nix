@@ -23,7 +23,7 @@
     };
     apps.${system}.default = {
       type = "app";
-      program = "${self.devShells.${system}.default.nativeBuildInputs}";
+      program = "${pkgs.air}/bin/air";
     };
   };
 }
