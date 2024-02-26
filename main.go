@@ -1,19 +1,29 @@
 package main
 
 import (
+	"context"
+	"fmt"
 	"net/http"
+	"os"
+
+	"github.com/a-h/templ"
+	"github.com/mvaldes14/api-go-otel/views"
 )
 
 func indexHandler(w http.ResponseWriter, r *http.Request) {
-  w.Write([]byte("Hello World"))
+  index, err := views.IndexView().Render(ctx context.Background(), w)
+  if err != nil {
+    fmt.Println(err)
+    os.Exit(1)
+  }
 }
 
 func main() {
-  mux := http.NewServeMux()
+	mux := http.NewServeMux()
 
-  mux.HandleFunc("/",indexHandler)
+	mux.HandleFunc("GET /", templ.Handler(indexHandler))
 
-
-  http.ListenAndServe(":8080", mux)
+	fmt.Println("Server is running on port 3000")
+	http.ListenAndServe(":3000", mux)
 
 }
