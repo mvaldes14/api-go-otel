@@ -8,5 +8,5 @@ import (
 )
 
 func IndexApp() http.Handler {
-	return templ.Handler(views.IndexView())
+	return templ.Handler(views.BaseLayout())
 }

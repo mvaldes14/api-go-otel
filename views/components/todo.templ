@@ -1,0 +1,38 @@
+package components;
+
+
+type Todo struct {
+  Name string
+  Done bool
+}
+
+type TodoList struct { 
+  todos []Todo
+}
+
+templ Todos(){
+  @TodoInputView()
+  <hr />
+  @TodoListView()
+}
+
+// TODO:This needs to do validation
+templ TodoInputView(){
+  <div class="container mx-auto">
+    <input type="text" class="border-2 border-gray-300 p-2" placeholder="Add a new todo"></input>
+    <button hx-post="/api/todo" hx-swap="none" class="bg-blue-500 text-white p-2">Add</button>
+  </div>
+}
+
+// TODO: This needs to pull from the database
+templ TodoListView(){
+  <div class="container mx-auto list-image-[url(checkmark.png)]">
+    <ul>
+    <li> Todos 1</li>
+    <li> Todos 2</li>
+    <li> Todos 3</li>
+    <li> Todos 4</li>
+    <li> Todos 5</li>
+    </ul>
+  </div>
+}

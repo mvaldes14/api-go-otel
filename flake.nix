@@ -10,7 +10,7 @@
       system = "x86_64-linux";
       pkgs = import nixpkgs { inherit system; };
       name = "api-go-templ";
-      vendorHash = pkgs.lib.fakeHash;
+      vendorHash = "sha256-+18AtUrInojsgf32Ukh/iQct0cCoJHatVGNsMbRKJPQ=";
     in
     {
       devShells.${system}.default = pkgs.mkShell {
