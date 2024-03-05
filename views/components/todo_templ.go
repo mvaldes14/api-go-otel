@@ -90,7 +90,7 @@ func TodoListView() templ.Component {
 			templ_7745c5c3_Var3 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<div class=\"container mx-auto\"><ul><li>Todos 1</li><li>Todos 2</li><li>Todos 3</li><li>Todos 4</li><li>Todos 5</li></ul></div>")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<div class=\"container mx-auto\"><h1>Todo List: </h1><div hx-get=\"/api/todo\" hx-trigger=\"onload\"><div class=\"flex justify-between\"><div class=\"flex items-center\"><input type=\"checkbox\" class=\"border-2 border-gray-300 p-2\"><p class=\"p-2\">Todo 1</p></div><button hx-delete=\"/api/todo/1\" hx-swap=\"none\" class=\"bg-red-500 text-white p-2\">Delete</button></div></div></div>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

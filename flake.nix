@@ -15,7 +15,7 @@
     {
       devShells.${system}.default = pkgs.mkShell {
         inputsFrom = [ self.packages.${system}.default ];
-        nativeBuildInputs = [ pkgs.air pkgs.templ ];
+        nativeBuildInputs = [ pkgs.air pkgs.templ pkgs.sqlite ];
       };
       packages.${system}.default = pkgs.buildGo122Module {
         inherit name vendorHash;

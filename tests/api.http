@@ -1,0 +1,11 @@
+GET localhost:3000/api/health
+
+GET localhost:3000/api/todo
+
+POST localhost:3000/api/todo
+Content-Type: application/json
+
+{
+  "title": "Learn Go",
+  "completed": false
+}

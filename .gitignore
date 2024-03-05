@@ -1,5 +1,5 @@
 .direnv
 result
 vendor/*
-.tmp/*
-
+tmp/*
+test.db
