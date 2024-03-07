@@ -1,0 +1,16 @@
+package components
+
+import (
+	"strconv"
+	"github.com/mvaldes14/api-go-otel/pkg/database"
+)
+
+templ TodoList(todos database.TodoList) {
+	<div>
+		for _, todo := range todos {
+			<input type="checkbox" checked?={ todo.Completed }/>
+			<p>{ strconv.Itoa(todo.ID)  } </p>
+			<p>{ todo.Title } </p>
+		}
+	</div>
+}

@@ -21,7 +21,7 @@ func main() {
 	mux.Handle("GET /", app.IndexApp())
 
 	// API Handlers
-	mux.HandleFunc("GET /api/health", api.ApiIndexHandler)
+	mux.HandleFunc("GET /api/health", api.IndexHandler)
 
 	// API Handlers
 	mux.HandleFunc("POST /api/todo", api.AddTodoHandler)
