@@ -1,16 +1,18 @@
+// Package api provides the HTTP handlers for the API endpoints
 package api
 
 import (
 	"context"
 	"fmt"
 	"net/http"
+	"strconv"
 
 	"github.com/mvaldes14/api-go-otel/pkg/database"
 	"github.com/mvaldes14/api-go-otel/views/components"
 )
 
 // IndexHandler Returns a 200 OK for health checks
-func IndexHandler(w http.ResponseWriter, r *http.Request) {
+func IndexHandler(w http.ResponseWriter, _ *http.Request) {
 	w.WriteHeader(http.StatusOK)
 	fmt.Fprintf(w, "Healthy")
 }
@@ -28,7 +30,7 @@ func AddTodoHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 // GetTodoHandler Returns a list of todos from the database
-func GetTodoHandler(w http.ResponseWriter, r *http.Request) {
+func GetTodoHandler(w http.ResponseWriter, _ *http.Request) {
 	todo, err := database.GetTodos()
 	if err != nil {
 		w.WriteHeader(http.StatusInternalServerError)
@@ -36,4 +38,14 @@ func GetTodoHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	components.TodoList(todo).Render(context.Background(), w)
+}
+
+// DeleteTodoHandler removes a todo from the database
+func DeleteTodoHandler(w http.ResponseWriter, r *http.Request) {
+	id, err := strconv.Atoi(r.PathValue("id"))
+	if err != nil {
+		return
+	}
+	database.DeleteTodos(id)
+	fmt.Fprintf(w, "Todo Deleted")
 }

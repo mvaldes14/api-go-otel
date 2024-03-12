@@ -1,0 +1,20 @@
+package views
+
+import (
+	"github.com/mvaldes14/api-go-otel/views/components"
+	"github.com/mvaldes14/api-go-otel/pkg/database"
+)
+
+templ TodoLayout(todos database.TodoList) {
+	<div id="todos">
+		<p>Todo Section </p>
+		@components.TodoAddForm()
+		<hr/>
+		<div class="container mx-auto text-center">
+			<h1 class="text-xl font-bold">Todo List: </h1>
+			<div id="todos" hx-get="/api/todo" hx-trigger="submit from:#form">
+				@components.TodoList(todos)
+			</div>
+		</div>
+	</div>
+}

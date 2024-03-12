@@ -10,7 +10,7 @@ import "context"
 import "io"
 import "bytes"
 
-func NavBar() templ.Component {
+func TodoAddForm() templ.Component {
 	return templ.ComponentFunc(func(ctx context.Context, templ_7745c5c3_W io.Writer) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_Buffer, templ_7745c5c3_IsBuffer := templ_7745c5c3_W.(*bytes.Buffer)
 		if !templ_7745c5c3_IsBuffer {
@@ -23,7 +23,7 @@ func NavBar() templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<nav class=\"bg-gray-800\"><div class=\"mx-auto max-w-7xl px-2 sm:px-6 lg:px-8\"><div class=\"relative flex h-16 items-center justify-between\"><div class=\"flex flex-1 items-center justify-center sm:items-stretch sm:justify-start\"><div class=\"hidden sm:ml-6 sm:block\"><div class=\"flex space-x-4\"><a href=\"/\" class=\"bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium\" aria-current=\"page\">Todo</a> <a href=\"/twitch\" class=\"text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium\">Twitch</a> <a href=\"/local\" class=\"text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium\">Local</a></div></div></div></div></div></nav>")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<div class=\"mx-auto text-center\"><h2 class=\"font-bold text-lg\">Add a new todo </h2><form hx-post=\"/api/todo\" hx-swap=\"none\" id=\"form\"><input type=\"text\" class=\"border-2 border-gray-300 p-2\" name=\"name\" placeholder=\"Add a new todo\"> <input type=\"submit\" class=\"bg-blue-500 text-white p-2\" value=\"Add\"></form></div>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

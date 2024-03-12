@@ -1,3 +1,4 @@
+// Package main
 package main
 
 import (
@@ -18,7 +19,13 @@ func main() {
 	mux := http.NewServeMux()
 
 	// Application Handlers (HTMX)
-	mux.Handle("GET /", app.IndexApp())
+	mux.HandleFunc("GET /", app.IndexApp)
+
+	// Application Handlers (HTMX)
+	mux.HandleFunc("GET /twitch", app.TwitchApp)
+
+	// // Application Handlers (HTMX)
+	mux.HandleFunc("GET /local", app.LocalApp)
 
 	// API Handlers
 	mux.HandleFunc("GET /api/health", api.IndexHandler)
@@ -28,6 +35,9 @@ func main() {
 
 	// API Handlers
 	mux.HandleFunc("GET /api/todo", api.GetTodoHandler)
+
+	// API Handlers
+	mux.HandleFunc("DELETE /api/todo/{id}", api.DeleteTodoHandler)
 
 	fmt.Println("Server is running on port 3000")
 	http.ListenAndServe(":3000", mux)

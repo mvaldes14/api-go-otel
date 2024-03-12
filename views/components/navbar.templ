@@ -1,15 +1,19 @@
 package components 
 
-
 templ NavBar() {
-<div>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">GOSH APP</a>
-    <p> Go + OTEL + HTMX + SQLX</p>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
-      aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    </nav>
-</div>
+	<nav class="bg-gray-800">
+		<div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+			<div class="relative flex h-16 items-center justify-between">
+				<div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
+					<div class="hidden sm:ml-6 sm:block">
+						<div class="flex space-x-4">
+							<a href="/" class="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium" aria-current="page">Todo</a>
+							<a href="/twitch" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Twitch</a>
+							<a href="/local" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Local</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</nav>
 }

@@ -1,16 +1,20 @@
 package components
 
 import (
-	"strconv"
 	"github.com/mvaldes14/api-go-otel/pkg/database"
+	"fmt"
 )
 
 templ TodoList(todos database.TodoList) {
-	<div>
+	<ol class="list-inside list-decimal">
 		for _, todo := range todos {
-			<input type="checkbox" checked?={ todo.Completed }/>
-			<p>{ strconv.Itoa(todo.ID)  } </p>
-			<p>{ todo.Title } </p>
+			<li>
+				{ todo.Title }
+				<span>
+					<input type="checkbox" checked?={ todo.Completed }/>
+					<button class="text-red-500" hx-delete={ string(templ.URL(fmt.Sprintf("/api/todo/%d", todo.ID))) }>X</button>
+				</span>
+			</li>
 		}
-	</div>
+	</ol>
 }

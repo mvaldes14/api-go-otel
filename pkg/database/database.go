@@ -57,3 +57,10 @@ func GetTodos() (TodoList, error) {
 	}
 	return todos, nil
 }
+
+// DeleteTodos removes a todo from the database
+func DeleteTodos(id int) {
+	tx := db.MustBegin()
+	defer tx.Commit()
+	tx.MustExec("DELETE FROM TODOS WHERE ID = ?", id)
+}

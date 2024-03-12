@@ -1,60 +1,24 @@
 package views
 
 import (
-  "github.com/mvaldes14/api-go-otel/views/components"
-	"github.com/mvaldes14/api-go-otel/pkg/database"
-  "strconv"
+	"github.com/mvaldes14/api-go-otel/views/components"
 )
 
-templ BaseLayout(todos database.TodoList){
-  <!DOCTYPE html>
-  <html lang="en">
-
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
-    <title>GOSH App</title>
-    <link rel="stylesheet" href="styles.css"></link>
-  </head>
-
-  <body>
-    @components.NavBar()
-
-    <div>
-      <div class="container mx-auto">
-      <form hx-post="/api/todo" hx-swap="none" id="form">
-        <input type="text" class="border-2 border-gray-300 p-2" name="name" placeholder="Add a new todo"></input>
-        <input type="submit" class="bg-blue-500 text-white p-2" value="Add"></input>
-        </form>
-      </div>
-      <hr />
-      <div class="container mx-auto"  >
-        <h1> Todo List: </h1>
-        <div id="todos" hx-get="/api/todo" hx-trigger="submit from:#form">
-          for _, todo := range todos {
-            <input type="checkbox" checked?={ todo.Completed }></input>
-            <p> { strconv.Itoa(todo.ID)  } </p>
-            <p> { todo.Title } </p>
-          }
-        </div>
-      </div>
-    </div>
-
-    <div id="twitch">
-
-    </div>
-
-
-    <div id="local">
-
-    </div>
-
-    
-
-
-    <script src="https://unpkg.com/htmx.org@1.9.10" integrity="sha384-D1Kt99CQMDuVetoL1lrYwg5t+9QdHe7NLX/SoJYkXDFfX37iInKRy5xLSi8nO7UC" crossorigin="anonymous"></script>
-    <script src="https://cdn.tailwindcss.com"></script>
-
-  </body>
-
-  </html>
+templ BaseLayout(layout templ.Component) {
+	<!DOCTYPE html>
+	<html lang="en">
+		<head>
+			<meta name="viewport" content="width=device-width, initial-scale=1"/>
+			<title>GOSH App</title>
+			<link rel="stylesheet" href="styles.css"/>
+		</head>
+		<body>
+			@components.NavBar()
+			<div class="flex flex-row container mx-auto">
+				@layout
+			</div>
+			<script src="https://unpkg.com/htmx.org@1.9.10" integrity="sha384-D1Kt99CQMDuVetoL1lrYwg5t+9QdHe7NLX/SoJYkXDFfX37iInKRy5xLSi8nO7UC" crossorigin="anonymous"></script>
+			<script src="https://cdn.tailwindcss.com"></script>
+		</body>
+	</html>
 }
