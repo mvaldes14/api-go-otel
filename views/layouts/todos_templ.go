@@ -28,7 +28,7 @@ func TodoLayout(todos database.TodoList) templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<div id=\"todos\"><p>Todo Section </p>")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<div class=\"mx-auto\" id=\"todos\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -36,7 +36,7 @@ func TodoLayout(todos database.TodoList) templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<hr><div class=\"container mx-auto text-center\"><h1 class=\"text-xl font-bold\">Todo List: </h1><div id=\"todos\" hx-get=\"/api/todo\" hx-trigger=\"submit from:#form\">")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<div class=\"h-5\"></div><div class=\"container mx-auto text-center\"><h1 class=\"text-xl font-bold\">Todo List: </h1><div id=\"todos\" hx-get=\"/api/todo\" hx-trigger=\"submit from:#form\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

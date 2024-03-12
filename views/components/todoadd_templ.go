@@ -23,7 +23,7 @@ func TodoAddForm() templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<div class=\"mx-auto text-center\"><h2 class=\"font-bold text-lg\">Add a new todo </h2><form hx-post=\"/api/todo\" hx-swap=\"none\" id=\"form\"><input type=\"text\" class=\"border-2 border-gray-300 p-2\" name=\"name\" placeholder=\"Add a new todo\"> <input type=\"submit\" class=\"bg-blue-500 text-white p-2\" value=\"Add\"></form></div>")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<div class=\"mx-auto text-center\"><h2 class=\"font-bold text-lg\">Add a new todo </h2><form hx-post=\"/api/todo\" hx-swap=\"none\" hx-on::after-request=\"this.reset()\" id=\"form\"><input type=\"text\" class=\"border-2 border-gray-300 p-2\" name=\"name\" placeholder=\"Add a new todo\"> <input type=\"submit\" class=\"bg-blue-500 text-white p-2\" value=\"Add\"></form></div>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

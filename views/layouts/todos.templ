@@ -6,10 +6,9 @@ import (
 )
 
 templ TodoLayout(todos database.TodoList) {
-	<div id="todos">
-		<p>Todo Section </p>
+	<div class="mx-auto" id="todos">
 		@components.TodoAddForm()
-		<hr/>
+		<div class="h-5"></div>
 		<div class="container mx-auto text-center">
 			<h1 class="text-xl font-bold">Todo List: </h1>
 			<div id="todos" hx-get="/api/todo" hx-trigger="submit from:#form">
