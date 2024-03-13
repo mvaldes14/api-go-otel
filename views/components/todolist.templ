@@ -8,7 +8,7 @@ import (
 templ TodoList(todos database.TodoList) {
 	<ol class="list-inside list-decimal">
 		for _, todo := range todos {
-			<li>
+			<li id="todo-item">
 				{ todo.Title }
 				<span>
 					<input type="checkbox" checked?={ todo.Completed }/>

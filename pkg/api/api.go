@@ -47,5 +47,4 @@ func DeleteTodoHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	database.DeleteTodos(id)
-	fmt.Fprintf(w, "Todo Deleted")
 }

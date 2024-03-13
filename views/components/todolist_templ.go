@@ -33,7 +33,7 @@ func TodoList(todos database.TodoList) templ.Component {
 			return templ_7745c5c3_Err
 		}
 		for _, todo := range todos {
-			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<li>")
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<li id=\"todo-item\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
