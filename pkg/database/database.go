@@ -25,7 +25,7 @@ var db *sqlx.DB
 // InitDb initializes the DB and creates the schema
 func InitDb() {
 	var err error
-	db, err = sqlx.Connect("sqlite3", "test.db")
+	db, err = sqlx.Open("sqlite3", "test.db")
 	if err != nil {
 		log.Fatalln(err)
 	}
